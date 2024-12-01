@@ -9,6 +9,6 @@ export const routes: Routes = [
     {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'portfolio'
+        redirectTo: 'porfolio'
     }
 ];

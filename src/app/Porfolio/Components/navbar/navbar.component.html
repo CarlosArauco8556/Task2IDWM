@@ -1,1 +1,11 @@
-<p>navbar works!</p>
+<nav class="bg-white text-black p-2">
+    <div class="container flex justify-center">
+      <ul class="flex space-x-4">
+          <li><a href="#home" class="hover:text-blue-700 p-1" [class.bg-cyan-400]="isActive('home')" [class.rounded-lg]="isActive('home')" (click)="setActive('home')">Home</a></li>
+          <li><a href="#description" class="hover:text-blue-700 p-1" [class.bg-cyan-400]="isActive('description')" [class.rounded-lg]="isActive('description')" (click)="setActive('description')">Description</a></li>
+          <li><a href="#skills" class="hover:text-blue-700 p-1" [class.bg-cyan-400]="isActive('skills')" [class.rounded-lg]="isActive('skills')" (click)="setActive('skills')">Skills</a></li>
+          <li><a href="#projects" class="hover:text-blue-700 p-1" [class.bg-cyan-400]="isActive('projects')" [class.rounded-lg]="isActive('projects')" (click)="setActive('projects')">Projects</a></li>
+        <li><a href="#contact-form" class="hover:text-blue-700 p-1" [class.bg-cyan-400]="isActive('contact-form')" [class.rounded-lg]="isActive('contact-form')" (click)="setActive('contact-form')">Contact Form</a></li>
+      </ul>
+    </div>
+  </nav>
