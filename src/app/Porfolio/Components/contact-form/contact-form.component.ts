@@ -1,6 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'contact-form',
@@ -12,6 +12,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class ContactFormComponent implements OnInit {
   contactForm!: FormGroup;
   isSubmitting = false;
+  isModalVisible: boolean = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -35,12 +36,14 @@ export class ContactFormComponent implements OnInit {
     const modal = document.getElementById('confirmationModal');
     if (modal) {
       modal.classList.remove('hidden');
+      this.isModalVisible = true;
     }
   }
 
   closeModal(): void {
     const modal = document.getElementById('confirmationModal');
     if (modal) {
+      this.isModalVisible = false;
       modal.classList.add('hidden');
     }
 

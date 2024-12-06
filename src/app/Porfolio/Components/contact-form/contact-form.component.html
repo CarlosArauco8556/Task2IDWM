@@ -3,38 +3,44 @@
     <p class="text-3xl font-bold">Formulario de contacto</p>  
 </div>
 
-<div class="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg mt-16">
-    <h2 class="text-2xl font-bold mb-6 text-center">Formulario</h2>
-  
-    <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
-      <!-- Email Field -->
-      <div class="mb-4">
-        <label for="email" class="block text-base font-medium text-black">Correo electrónico</label>
-        <input id="email" type="email" formControlName="email" class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Introduce tu correo">
-      </div>
-  
-      <!-- Message Field -->
-      <div class="mb-4">
-        <label for="message" class="block text-base font-medium text-black">Descripcion</label>
-        <textarea id="message" formControlName="message" class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu Descripcion" rows="4"></textarea>
-      </div>
-  
-      <!-- Submit Button -->
-      <div class="mb-4">
-        <button type="submit" class="w-full p-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-          {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
+<div [ngClass]="{'flex': isModalVisible}" class="max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg mt-16 mb-20 items-center justify-center">
+    <div [ngClass]="{'hidden': isModalVisible}">
+      <h2 class="text-2xl font-bold mb-6 text-center">Formulario</h2>
+    
+      <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+        <!-- Email Field -->
+        <div class="mb-4">
+          <label for="email" class="block text-base font-medium text-black">Correo electrónico</label>
+          <input id="email" type="email" formControlName="email" class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Introduce tu correo">
+        </div>
+    
+        <!-- Message Field -->
+        <div class="mb-4">
+          <label for="message" class="block text-base font-medium text-black">Descripcion</label>
+          <textarea id="message" formControlName="message" class="mt-1 p-2 w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Escribe tu Descripcion" rows="4"></textarea>
+        </div>
+    
+        <!-- Submit Button -->
+        <div class="mb-4">
+          <button type="submit" class="w-full p-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            {{ isSubmitting ? 'Enviando...' : 'Enviar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal de confirmación (oculto por defecto) -->
+    <div id="confirmationModal" 
+    [ngClass]="{'hidden': !isModalVisible, 'flex': isModalVisible}" 
+    classclass="fixed inset-0 items-center justify-center bg-black bg-opacity-50">
+      <div class="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+        <h3 class="text-xl font-semibold text-green-500">Formulario Enviado</h3>
+        <p class="mt-2 text-gray-700">Tu mensaje ha sido enviado correctamente.</p>
+        <button (click)="closeModal()" class="mt-4 py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600">
+          Cerrar
         </button>
       </div>
-    </form>
+    </div> 
     
-    <!-- Modal de confirmación (oculto por defecto) -->
-    <div id="confirmationModal" class="fixed inset-0 items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded-lg shadow-lg text-center w-80">
-      <h3 class="text-xl font-semibold text-green-500">Formulario Enviado</h3>
-      <p class="mt-2 text-gray-700">Tu mensaje ha sido enviado correctamente.</p>
-      <button (click)="closeModal()" class="mt-4 py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600">
-        Cerrar
-      </button>
-    </div>
-    </div>    
 </div>
+
