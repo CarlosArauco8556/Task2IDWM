@@ -13,17 +13,13 @@ export class NavbarComponent {
   activeSection: string = '';
   scrolled: boolean = false;
 
-  // Function to change the active link when the user scrolls.
-  @HostListener('window:scroll', [])
-  onWindowScroll(): void {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    this.scrolled = scrollTop > 50; // Change the value to the desired scroll value.
-  }
   //Function to scroll to the section.
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const offset = 80;
+      const sectionPosition = section.offsetTop;
+      window.scrollTo({ top: sectionPosition - offset, behavior: 'smooth'});
       this.activeSection = sectionId; 
     }
   }
