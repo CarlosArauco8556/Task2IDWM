@@ -17,6 +17,8 @@ Ahora, es necesario crear una carpeta en cualquier direccion que deseas almacena
 
 Despues, haz click derecho sobre la carpeta  y selecciona abrir en terminal.
 
+<img src="https://drive.google.com/uc?export=view&id=1svstl1CkoRq30wl20-3LR4lxb5cB9NXh" alt="Abrir con terminal" width="450"/>
+
 Para clonar el repositorio en la carpeta que creaste, en la terminal ingresa el comando "git clone" seguido de un espacio y la direccion del repositorio (La cual copiaste anteriormente). 
 
 ````
@@ -77,7 +79,7 @@ Una vez instaladas las dependencias, ejecuta el servidor de desarrollo:
 ng serve
 ````
 
-## 7. Trabajo continuo
+## 4. Trabajo continuo
 
 Ahora puedes modificar componentes y estilos según lo necesario. Si haces cambios en TailwindCSS o Flowbite, recuerda que pueden requerir recompilar los estilos. Usa:
 
